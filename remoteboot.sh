@@ -42,7 +42,7 @@ mkdir -p "$SCRIPT_PATH/cache"
 echo "[*] Waiting for device in DFU mode"
 
 if [ "$OS" = "Darwin" ]; then
-	while ! system_profiler SPUSBDataType SPUSBHostDataType | grep -qF ' Apple, Inc. Mobile Device (DFU Mode)'; do
+	while ! system_profiler SPUSBDataType SPUSBHostDataType | grep -qF ' Apple Mobile Device (DFU Mode)'; do
 		sleep 1;
 	done
 else
