@@ -10,6 +10,12 @@ if [ "$OS" != "Darwin" ] && [ "$(id -u)" != "0" ]; then
 	exit 1;
 fi
 
+if [ "$1" != "prep" ] && [ "$1" != "boot" ] || ([ "$1" = "boot" ] && ([ "$2" = "" ] || [ "$3" = "" ]);); then
+	printf "Usage: \t$0\n\tprep\t\t\t\t\t\tfor preparing bootchain files\n";
+	printf "\tboot <m1n1-idevice.macho> <monitor-stub.macho>\tBoot m1n1\n";
+	exit 1;
+fi
+
 check_cmd()
 {
 	if [ "$(command -v "$1")" = "" ]; then
@@ -21,6 +27,7 @@ check_cmd()
 
 err_handler()
 {
+	[ $? -eq 0 ] && exit
 	echo "[-] An error occured";
 	exit 1;
 }
@@ -31,13 +38,6 @@ check_cmd "irecovery" "http://github.com/libimobiledevice/libirecovery";
 check_cmd "ipsw" "https://github.com/blacktop/ipsw";
 check_cmd "hBootPatcher" "https://github.com/HoolockLinux/hBootPatcher";
 check_cmd "gaster" "https://github.com/verygenericname/gaster";
-
-if [ "$1" != "prep" ] && [ "$1" != "boot" ] || ([ "$1" = "boot" ] && ([ "$2" = "" ] || [ "$3" = "" ]);); then
-	printf "Usage: \t$0\n\tprep\t\t\t\t\t\tfor preparing bootchain files\n";
-	printf "\tboot <m1n1-idevice.macho> <monitor-stub.macho>\tBoot m1n1\n";
-	exit 1;
-fi
-
 
 mkdir -p "$SCRIPT_PATH/cache"
 
