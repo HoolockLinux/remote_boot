@@ -25,6 +25,8 @@ err_handler()
 	exit 1;
 }
 
+trap err_handler EXIT
+
 check_cmd "irecovery" "http://github.com/libimobiledevice/libirecovery";
 check_cmd "ipsw" "https://github.com/blacktop/ipsw";
 check_cmd "hBootPatcher" "https://github.com/HoolockLinux/hBootPatcher";
