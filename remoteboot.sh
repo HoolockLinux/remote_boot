@@ -113,7 +113,7 @@ elif [ "$1" = "prep" ]; then
 	ipsw_dl_args=""
 
 	if [ "$CPID" = "0x8012" ]; then
-		ipsw_dl_args="download ipsw --ibridge -d $PRODUCT -m $MODEL --version 7.6"
+		ipsw_dl_args="download ipsw --ibridge -d $PRODUCT -m $MODEL --version 7.4"
 	elif [ "$PRODUCT" = "AudioAccessory1,1" ]; then
 		# 16.4
 		ipsw_dl_args="download appledb --type ota --os audioOS -d "$PRODUCT" --build 20L497 --release -fy"
