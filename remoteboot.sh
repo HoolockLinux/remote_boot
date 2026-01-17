@@ -48,7 +48,7 @@ if [ "$OS" = "Darwin" ]; then
 		sleep 1;
 	done
 else
-	while ! lsusb 2> /dev/null | grep -qF ' Apple, Inc. Mobile Device (DFU Mode)'; do
+	while ! lsusb 2> /dev/null | grep -qF '05ac:1227'; do
 		sleep 1;
 	done
 fi
