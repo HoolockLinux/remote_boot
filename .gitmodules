@@ -1,0 +1,9 @@
+[submodule "vendor/gaster"]
+	path = vendor/gaster
+	url = git@github.com:HoolockLinux/gaster.git
+[submodule "vendor/hBootPatcher"]
+	path = vendor/hBootPatcher
+	url = git@github.com:HoolockLinux/hBootPatcher.git
+[submodule "vendor/hKernelFWExtractor"]
+	path = vendor/hKernelFWExtractor
+	url = git@github.com:HoolockLinux/hKernelFWExtractor
