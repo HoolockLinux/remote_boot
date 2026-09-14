@@ -246,7 +246,7 @@ boot_device()
 	if [ "$two_stage" = "1" ]; then
 		ipsw img4 create --input "$2" --type rkrn --extra "$3" --compress lzss --im4m "${SCRIPT_PATH}/im4m/${CPID}.im4m" --output "${WORK}/RestoreKernelCache_${MODEL}_${PRODUCT}.img4"
 	else
-		ipsw img4 create --input "$2" --type rkrn --compress none --im4m "${SCRIPT_PATH}/im4m/${CPID}.im4m" --output "${WORK}/RestoreKernelCache_${MODEL}_${PRODUCT}.img4"
+		ipsw img4 create --input "$2" --type rkrn --compress lzss --im4m "${SCRIPT_PATH}/im4m/${CPID}.im4m" --output "${WORK}/RestoreKernelCache_${MODEL}_${PRODUCT}.img4"
 	fi
 
 	"$GASTER" reset
@@ -323,7 +323,7 @@ MAKE="$(make_check)"
 trap err_handler EXIT
 
 root_check "$@"
-check_cmd "irecovery" "http://github.com/libimobiledevice/libirecovery";
+check_cmd "irecovery" "https://github.com/libimobiledevice/libirecovery";
 check_cmd "ipsw" "https://github.com/blacktop/ipsw";
 check_cmd "clang"
 check_cmd "xxd"

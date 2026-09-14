@@ -4,8 +4,16 @@ m1n1 remote booter for HoolockLinux
 
 ## Dependencies
 
-You need [ipsw](https://github.com/blacktop/ipsw) and [irecovery](https://github.com/libimobiledevice/libirecovery).
-On Linux, you will also need `util-linux`'s `lsusb`. Other dependencies are vendored as git submodules. For them to
+
+- [libirecovery](https://github.com/libimobiledevice/libirecovery)
+- [ipsw](https://github.com/blacktop/ipsw) 3.1.719 or above
+	- Older versions of `ipsw` generates incorrect LZSS compressed IMG4s.
+- clang
+- xxd
+- git
+- lsusb from util-linux on Linux
+
+Other dependencies are vendored as git submodules. For them to
 compile however, you must have clang and GNU make installed.
 
 ## Usage
